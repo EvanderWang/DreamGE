@@ -37,5 +37,8 @@ int main(int argc, char ** argv){
     std::set<std::string> myset;
     if(auto[iter, success] = myset.insert("hello"); success)
         std::cout << *iter << std::endl;
-        return 0;
+    
+    system("pause");
+
+    return 0;
 }
