@@ -1,8 +1,15 @@
 {
     "DreamGE":{
-        "complier":{
-            "windows": "clang-cl",
-        }
+        "windows":{
+            "complier": "clang-cl",
+            "debug": "/Z7 /MDd /W4 /EHsc /std:c++17 /Od /o",
+            "output": "build/Debug/Test.exe",
+        },
+        "macos":{
+            "complier": "clang++",
+            "debug": "-g -std=c++17 -o",
+            "output": "build/Debug/Test",
+        },
+        "cppfiles": "main.cpp test.cpp",
     },
-    //"DreamGE.Windows.complier": "clang-cl",
 }

@@ -2,30 +2,13 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "clang-cl Debug",
+            "label": "Build Debug",
             "type": "shell",
             "windows": {
-                "command": "${config:DreamGE.complier.windows}",
-                "args": [
-                    "main.cpp",
-                    "/Z7",
-                    "/MDd",
-                    "/W4",
-                    "/EHsc",
-                    "/std:c++17",
-                    "/Od",
-                    "/obuild/Debug/Test.exe",
-                    "/linkUser32.lib"
-                ],
+                "command": "${config:DreamGE.windows.complier} ${config:DreamGE.cppfiles} ${config:DreamGE.windows.debug}${config:DreamGE.windows.output}",
             },
             "osx": {
-                "command": "clang++",
-                "args": [
-                    "main.cpp",
-                    "-g",
-                    "-std=c++17",
-                    "-obuild/Debug/Test",
-                ],
+                "command": "${config:DreamGE.macos.complier} ${config:DreamGE.cppfiles} ${config:DreamGE.macos.debug}${config:DreamGE.macos.output}",
             },
             "group": {
               "kind": "build",

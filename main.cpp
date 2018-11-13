@@ -5,6 +5,8 @@
 #include <set>
 //#include <windows.h>
 
+#include "test.hpp"
+
 // test c++11
 void hello(){
     std::cout << "hello thread!\n";
@@ -40,6 +42,9 @@ int main(/*int argc, char ** argv*/){
         std::cout << *iter << std::endl;
     
     void * pointer = (void *)&f;
+
+    VTest testObj(11);
+    int x = testObj.DoTest(22);
 
     //MessageBoxA(nullptr, "Test2", "Test", MB_OK);
     system("pause");
