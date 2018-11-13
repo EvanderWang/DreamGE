@@ -6,10 +6,10 @@
     "configurations": [
 
         {
-            "name": "(lldb) Launch",
+            "name": "(Macos) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Debug/Test",
+            "program": "${workspaceFolder}/${config:DreamGE.macos.output}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -21,7 +21,7 @@
             "name": "(Windows) Launch",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Debug/Test.exe",
+            "program": "${workspaceFolder}/${config:DreamGE.windows.output}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
