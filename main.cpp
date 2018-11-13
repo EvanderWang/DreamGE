@@ -3,6 +3,7 @@
 #include <memory>
 #include <thread>
 #include <set>
+#include <windows.h>
 
 // test c++11
 void hello(){
@@ -17,7 +18,7 @@ auto getFunc(){
     return f;
 }
 
-int main(int argc, char ** argv){
+int main(/*int argc, char ** argv*/){
     // test c++ std library.
     std::cout << "Hello World" << std::endl;
     std::string sa = "hello";
@@ -38,6 +39,7 @@ int main(int argc, char ** argv){
     if(auto[iter, success] = myset.insert("hello"); success)
         std::cout << *iter << std::endl;
     
+    MessageBoxA(nullptr, "Test", "Test", MB_OK);
     system("pause");
 
     return 0;
