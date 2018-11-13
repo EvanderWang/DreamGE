@@ -19,7 +19,13 @@
                 ],
             },
             "osx": {
-                "command": "clang",
+                "command": "clang++",
+                "args": [
+                    "main.cpp",
+                    "-g",
+                    "-std=c++17",
+                    "-obuild/Debug/Test",
+                ],
             },
             "group": {
               "kind": "build",
