@@ -5,7 +5,7 @@
             "label": "clang-cl Debug",
             "type": "shell",
             "windows": {
-                "command": "clang-cl",
+                "command": "${config:DreamGE.complier.windows}",
                 "args": [
                     "main.cpp",
                     "/Z7",

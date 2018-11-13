@@ -3,7 +3,7 @@
 #include <memory>
 #include <thread>
 #include <set>
-#include <windows.h>
+//#include <windows.h>
 
 // test c++11
 void hello(){
@@ -39,7 +39,9 @@ int main(/*int argc, char ** argv*/){
     if(auto[iter, success] = myset.insert("hello"); success)
         std::cout << *iter << std::endl;
     
-    MessageBoxA(nullptr, "Test", "Test", MB_OK);
+    void * pointer = (void *)&f;
+
+    //MessageBoxA(nullptr, "Test2", "Test", MB_OK);
     system("pause");
 
     return 0;

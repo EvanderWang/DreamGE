@@ -1,0 +1,8 @@
+{
+    "DreamGE":{
+        "complier":{
+            "windows": "clang-cl",
+        }
+    },
+    //"DreamGE.Windows.complier": "clang-cl",
+}
