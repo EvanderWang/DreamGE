@@ -8,7 +8,7 @@ init setting:
     1) Add Environment Path: {VSDir}/Common7/Tools ------- so that could find "VsDevCmd.bat"
     2) Add Environment Path: {VSDir}/VC            ------- so that could find "vcvarsall.bat"
     3) Set VSCode User Setting: "terminal.integrated.shell.windows": "cmd.exe"
-    4) Set VSCode User Setting: "terminal.integrated.shellArgs.windows": ["/k","VsDevCmd.bat","&&","vcvarsall.bat","x64","&&","echo",]
+    4) Set VSCode User Setting: "terminal.integrated.shellArgs.windows": ["/c","VsDevCmd.bat","&&","vcvarsall.bat","x64","&&","echo",]
 
 2. MacOS: VSCode + cmake + ninja + clang + llvm link tool + lldb
 
