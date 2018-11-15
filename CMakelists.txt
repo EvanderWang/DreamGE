@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.5)
+
+IF(WIN32)
+    SET(CMAKE_C_COMPILER "clang-cl")
+    SET(CMAKE_CXX_COMPILER "clang-cl")
+ENDIF(WIN32)
+
+IF(APPLE)
+    SET(CMAKE_C_COMPILER "clang")
+    SET(CMAKE_CXX_COMPILER "clang++")
+ENDIF(APPLE)
+
+SET(CMAKE_CXX_STANDARD 17)
+
+project(test)
+
+set(EXECUTABLE_OUTPUT_PATH "../../bin/${CMAKE_BUILD_TYPE}")
+
+add_executable(test main.cpp test.cpp)

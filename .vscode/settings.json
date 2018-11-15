@@ -1,14 +1,16 @@
 {
     "DreamGE":{
+        "cur_run_type":"Debug",
+        "cur_run_execute": "test",
         "windows":{
             "complier": "clang-cl",
             "debug": "/Z7 /MDd /W4 /EHsc /std:c++17 /Od /o",
-            "output": "build/Debug/Test.exe",
+            "output": "bin/Debug/test.exe",
         },
         "macos":{
             "complier": "clang++",
             "debug": "-g -std=c++17 -o",
-            "output": "build/Debug/Test",
+            "output": "build/Debug/test",
         },
         "cppfiles": "main.cpp test.cpp",
     },

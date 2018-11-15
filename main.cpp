@@ -34,7 +34,7 @@ int main(/*int argc, char ** argv*/){
 
     // test compile c++14
     auto f = getFunc();
-    std::cout << f(2.0) << std::endl;
+    std::cout << f(3.0) << std::endl;
     
     // test c++17
     std::set<std::string> myset;

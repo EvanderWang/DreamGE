@@ -21,7 +21,7 @@
             "name": "(Windows) Launch",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/${config:DreamGE.windows.output}",
+            "program": "${workspaceFolder}/bin/${config:DreamGE.cur_run_type}/${config:DreamGE.cur_run_execute}.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
