@@ -5,7 +5,7 @@
             "label": "Build Debug",
             "type": "shell",
             "windows": {
-                "command": " && mkdir .\\build\\Debug || cd ./build/Debug && cmake ../.. -GNinja -DCMAKE_BUILD_TYPE=Debug && ninja"
+                "command": " && mkdir build\\Debug 2> nul & cd build/Debug && cmake ../.. -GNinja -DCMAKE_BUILD_TYPE=Debug && ninja"
             },
             "osx": {
                 "command": " mkdir -p build/Debug && cd build/Debug && cmake ../.. -GNinja -DCMAKE_BUILD_TYPE=Debug && ninja"
@@ -19,10 +19,10 @@
             "label": "Build Relase",
             "type": "shell",
             "windows": {
-                "command": " && mkdir .\\build\\Release || cd ./build/Release && cmake ../.. -GNinja -DCMAKE_BUILD_TYPE=Release && ninja"
+                "command": " && mkdir build\\Release 2> nul & cd build/Release && cmake ../.. -GNinja -DCMAKE_BUILD_TYPE=Release && ninja"
             },
             "osx": {
-                "command": " mkdir -p ./build/Release && cd ./build/Release && cmake ../.. -GNinja -DCMAKE_BUILD_TYPE=Release && ninja"
+                "command": " mkdir -p build/Release && cd build/Release && cmake ../.. -GNinja -DCMAKE_BUILD_TYPE=Release && ninja"
             },
             "group": {
                 "kind": "build",
