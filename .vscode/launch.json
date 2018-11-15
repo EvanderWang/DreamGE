@@ -9,7 +9,7 @@
             "name": "(Macos) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/${config:DreamGE.macos.output}",
+            "program": "${workspaceFolder}/bin/${config:DreamGE.cur_run_type}/${config:DreamGE.cur_run_execute}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
