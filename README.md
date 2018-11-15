@@ -1,16 +1,23 @@
 Cross Platform:
 
+    total setting:
+        1) install: VSCode , cmake , ninja , clang(llvm).
+        2) Add Environment Path: cmake , ninja , clang(llvm) 's containing folder.
+
 1. Windows: VSCode + cmake + ninja + clang-cl + vs link tool + vs debug tool
 
-init setting: 
-    first of all: need vs installed so that could use the link and debug tool
+    init setting: 
+        first of all: need vs installed so that could use the link and debug tool
 
-    1) Add Environment Path: {VSDir}/Common7/Tools ------- so that could find "VsDevCmd.bat"
-    2) Add Environment Path: {VSDir}/VC            ------- so that could find "vcvarsall.bat"
-    3) Set VSCode User Setting: "terminal.integrated.shell.windows": "cmd.exe"
-    4) Set VSCode User Setting: "terminal.integrated.shellArgs.windows": ["/c","VsDevCmd.bat","&&","vcvarsall.bat","x64","&&","echo",]
+        1) Add Environment Path: {VSDir}/Common7/Tools ------- so that could find "VsDevCmd.bat"
+        2) Add Environment Path: {VSDir}/VC            ------- so that could find "vcvarsall.bat"
+        3) Set VSCode User Setting: "terminal.integrated.shell.windows": "cmd.exe"
+        4) Set VSCode User Setting: "terminal.integrated.shellArgs.windows": ["/c","VsDevCmd.bat","&&","vcvarsall.bat","x64","&&","echo",]
 
 2. MacOS: VSCode + cmake + ninja + clang + llvm link tool + lldb
+
+    init setting:
+
 
 VSCode Extensions:
 
