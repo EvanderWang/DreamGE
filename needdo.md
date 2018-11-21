@@ -5,3 +5,7 @@
     1.基于ISPC的可并行数学库
     2.跨平台的渲染器（output）
     3.跨平台的输入模块（input）
+
+Thinking:
+    1.每一个方法都相当于一个operator？ operator需要接口，以便更抽象的operator可以实现。
+    2.传入operator的operator操作对象是observerable，而传入operator的其他内容是observerable的一个时刻的数据，该如何组合？（builder与subsystem的组合）
