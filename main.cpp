@@ -91,6 +91,23 @@
 //
 //rxcpp::observable<VIxxx> inport = vinport( VManager );
 
+class MyTestOp //: public rxcpp::operators::operator_base<int>
+{
+public:
+    MyTestOp(){}
+    ~MyTestOp(){}
+
+    rxcpp::subscriber<int> operator() (rxcpp::subscriber<int> s) const {
+        return rxcpp::make_subscriber<int>([s](const int & next) {
+            s.on_next(std::move(next + 1));
+        },  [&s](const std::exception_ptr & e) {
+            s.on_error(e);
+        },  [&s]() {
+            s.on_completed();
+        });
+    }
+};
+
 int main()
 {
     auto keys = rxcpp::observable<>::create<int>(
@@ -102,15 +119,21 @@ int main()
         }).
         publish();
 
-    auto a = keys.
-        filter([](int key){return tolower(key) == 'a';});
+    keys.lift<int>(MyTestOp()).subscribe([](int key){ 
+        std::cout << key << std::endl;
+    });
 
-    auto g = keys.
-        filter([](int key){return tolower(key) == 'g';});
-
-    a.merge(g).op().subscribe([](int key){
-            std::cout << key << std::endl;
-        });
+    //keys.lift<int>([](rxcpp::subscriber<int> s) { 
+    //    return rxcpp::make_subscriber<int>([s](const int & next) {
+    //        s.on_next(std::move(next + 1));
+    //    },  [&s](const std::exception_ptr & e) {
+    //        s.on_error(e);
+    //    },  [&s]() {
+    //        s.on_completed();
+    //    });
+    //}).subscribe([](int key){ 
+    //    std::cout << key << std::endl;
+    //});
 
     // run the loop in create
     keys.connect();
