@@ -55,15 +55,27 @@
 #include "Third/RxCpp/Rx/v2/src/rxcpp/rx.hpp"
 // builder example
 
-//class VBuilder
-//{
-//    bool Build( int & out , const int & in)
-//    {
-//        out = in + 1;
-//        return true;
-//    }
-//};
-//
+struct VBDivide
+{
+    enum VEReturn 
+    {
+        VR_DIV_ZERO = 1,
+    };
+
+    int Build( int & out , const int & in1, const int & in2)
+    {
+        if( in2 == 0 )
+        {
+            return VR_DIV_ZERO;
+        }
+        else
+        {
+            out = in1 / in2;
+            return 0;
+        }
+    }
+};
+
 //interface VIxxx = VI< input<int>, output<int> >;
 //
 //class VManager
@@ -116,10 +128,13 @@ int main()
                 int key = std::cin.get();
                 dest.on_next(key);
             }
-        }).
-        publish();
+        }).publish();
 
     keys.lift<int>(MyTestOp()).subscribe([](int key){ 
+        std::cout << key << std::endl;
+    });
+
+    keys.subscribe([](int key){ 
         std::cout << key << std::endl;
     });
 

@@ -9,3 +9,5 @@
 Thinking:
     1.每一个方法都相当于一个operator？ operator需要接口，以便更抽象的operator可以实现。
     2.传入operator的operator操作对象是observerable，而传入operator的其他内容是observerable的一个时刻的数据，该如何组合？（builder与subsystem的组合）
+    3.使用combain_latest 和 sample（需自行实现）
+    4.弄清楚对象生存周期
