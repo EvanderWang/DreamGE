@@ -51,107 +51,12 @@
 //    return 0;
 //}
 
-
-#include "Third/RxCpp/Rx/v2/src/rxcpp/rx.hpp"
-// builder example
-
-struct VBDivide
-{
-    enum VEReturn 
-    {
-        VR_DIV_ZERO = 1,
-    };
-
-    int Build( int & out , const int & in1, const int & in2)
-    {
-        if( in2 == 0 )
-        {
-            return VR_DIV_ZERO;
-        }
-        else
-        {
-            out = in1 / in2;
-            return 0;
-        }
-    }
-};
-
-//interface VIxxx = VI< input<int>, output<int> >;
-//
-//class VManager
-//{
-//    VManager( const rxcpp::observable<int> & , const rxcpp::observable<VIxxx> & ){}
-//
-//    // base
-//    void OnLink( rxcpp::observable<int> & pipein1 , rxcpp::observer<int> & pipeout1 )
-//    {
-//        pipein1.customOP<VBuilder>().subscribe(pipeout1);
-//    }
-//
-//    void OnLink( rxcpp::observable<int> & pipein1, rxcpp::observable<VIxxx> & pipein2 , rxcpp::observer<int> & pipeout1 )
-//    {
-//        pipein1.customOP(pipein2).subscribe(pipeout1);
-//    }
-//
-//    void OnLink(rxcpp::observable<VIxxx> & pipein2, rxcpp::observer<VIyyy> & pipeout2)
-//    {
-//        // use sth like vexport()
-//    }
-//};
-//
-//vexport( VManager , VIxxx );
-//
-//rxcpp::observable<VIxxx> inport = vinport( VManager );
-
-class MyTestOp //: public rxcpp::operators::operator_base<int>
-{
-public:
-    MyTestOp(){}
-    ~MyTestOp(){}
-
-    rxcpp::subscriber<int> operator() (rxcpp::subscriber<int> s) const {
-        return rxcpp::make_subscriber<int>([s](const int & next) {
-            s.on_next(std::move(next + 1));
-        },  [&s](const std::exception_ptr & e) {
-            s.on_error(e);
-        },  [&s]() {
-            s.on_completed();
-        });
-    }
-};
+#include <vector>
+#include "System/tisys.h"
 
 int main()
 {
-    auto keys = rxcpp::observable<>::create<int>(
-        [](rxcpp::subscriber<int> dest){
-            for (;;) {
-                int key = std::cin.get();
-                dest.on_next(key);
-            }
-        }).publish();
-
-    keys.lift<int>(MyTestOp()).subscribe([](int key){ 
-        std::cout << key << std::endl;
-    });
-
-    keys.subscribe([](int key){ 
-        std::cout << key << std::endl;
-    });
-
-    //keys.lift<int>([](rxcpp::subscriber<int> s) { 
-    //    return rxcpp::make_subscriber<int>([s](const int & next) {
-    //        s.on_next(std::move(next + 1));
-    //    },  [&s](const std::exception_ptr & e) {
-    //        s.on_error(e);
-    //    },  [&s]() {
-    //        s.on_completed();
-    //    });
-    //}).subscribe([](int key){ 
-    //    std::cout << key << std::endl;
-    //});
-
-    // run the loop in create
-    keys.connect();
+    
 
     return 0;
 }

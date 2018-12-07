@@ -14,4 +14,7 @@
         },
         "cppfiles": "main.cpp test.cpp",
     },
+    "files.associations": {
+        "cstddef": "cpp"
+    },
 }
